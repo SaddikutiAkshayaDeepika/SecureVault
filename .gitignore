@@ -1,0 +1,32 @@
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Spring Boot
+backend/target/
+*.log
+
+# Node / React
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# macOS
+.DS_Store
+
+# OS / temporary files
+*.tmp
+*.swp
+
+# Build files
+*.class
+
+# Local database / runtime files
+*.db
+*.sqlite
