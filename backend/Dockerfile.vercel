@@ -16,4 +16,4 @@ RUN ./mvnw clean package -DskipTests
 
 EXPOSE 80
 
-CMD ["sh", "-c", "java -jar target/securevault-0.0.1-SNAPSHOT.jar --server.port=${PORT:-80} 2>&1"]
+CMD ["sh", "-c", "exec java -jar target/securevault-0.0.1-SNAPSHOT.jar --server.port=${PORT:-80}"]
