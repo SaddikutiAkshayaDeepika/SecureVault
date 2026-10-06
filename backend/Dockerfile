@@ -7,12 +7,13 @@ COPY mvnw .
 COPY pom.xml .
 
 RUN chmod +x mvnw
+
 RUN ./mvnw dependency:go-offline -DskipTests
 
 COPY src src
 
 RUN ./mvnw clean package -DskipTests
 
-EXPOSE 8080
+EXPOSE 80
 
-CMD ["java", "-jar", "target/securevault-0.0.1-SNAPSHOT.jar"]
+CMD ["sh", "-c", "java -jar target/securevault-0.0.1-SNAPSHOT.jar --server.port=${PORT:-80}"]
