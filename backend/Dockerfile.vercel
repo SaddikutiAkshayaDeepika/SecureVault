@@ -1,0 +1,19 @@
+FROM eclipse-temurin:23-jdk
+
+WORKDIR /app
+
+COPY .mvn .mvn
+COPY mvnw .
+COPY pom.xml .
+
+RUN chmod +x mvnw
+
+RUN ./mvnw dependency:go-offline -DskipTests
+
+COPY src src
+
+RUN ./mvnw clean package -DskipTests
+
+EXPOSE 80
+
+CMD ["sh", "-c", "java -jar target/securevault-0.0.1-SNAPSHOT.jar --server.port=${PORT:-80}"]
