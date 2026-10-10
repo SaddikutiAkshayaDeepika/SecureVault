@@ -30,3 +30,5 @@ frontend/.vite/
 # Local database / runtime files
 *.db
 *.sqlite
+.vercel
+.env*
